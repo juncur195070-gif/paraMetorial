@@ -123,7 +123,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('getOrganizationInfoAPI', { sections: ['basic'] });
+          const data = await doctocRequest('getOrgInfoAPI', { sections: ['basic'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -140,7 +140,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('getOrganizationInfoAPI', { sections: ['sedes'] });
+          const data = await doctocRequest('getOrgInfoAPI', { sections: ['sedes'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -157,7 +157,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('getOrganizationInfoAPI', { sections: ['specialties'] });
+          const data = await doctocRequest('getOrgInfoAPI', { sections: ['specialties'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -174,7 +174,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('getOrganizationInfoAPI', { sections: ['users'] });
+          const data = await doctocRequest('getOrgInfoAPI', { sections: ['users'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -197,7 +197,7 @@ metorial.createServer<Config>(
       },
       async ({ uid }) => {
         try {
-          const data = await doctocRequest('getUserInfoAPI', { uid, sections: ['basic', 'professional'] });
+          const data = await doctocRequest('manageUserInfoAPI', { uid, sections: ['basic', 'professional'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -216,7 +216,7 @@ metorial.createServer<Config>(
       },
       async ({ uid }) => {
         try {
-          const data = await doctocRequest('getUserInfoAPI', { uid, sections: ['calendarInfo'] });
+          const data = await doctocRequest('manageUserInfoAPI', { uid, sections: ['calendarInfo'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -233,7 +233,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('getUserInfoAPI', { sections: ['tipos'] });
+          const data = await doctocRequest('manageUserInfoAPI', { sections: ['tipos'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -253,7 +253,7 @@ metorial.createServer<Config>(
       },
       async ({ uid, calendarData }) => {
         try {
-          const data = await doctocRequest('getUserInfoAPI', { uid, action: 'update', calendarData });
+          const data = await doctocRequest('manageUserInfoAPI', { uid, action: 'update', calendarData });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -569,7 +569,7 @@ metorial.createServer<Config>(
         } catch (e: any) {
           // Fallback: obtener precios desde tipos de cita
           try {
-            const fallback = await doctocRequest('getUserInfoAPI', { sections: ['tipos'] });
+            const fallback = await doctocRequest('manageUserInfoAPI', { sections: ['tipos'] });
             return ok({ source: 'appointment_types_fallback', data: fallback });
           } catch (e2: any) {
             return err(e.message);
