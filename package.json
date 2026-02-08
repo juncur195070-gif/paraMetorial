@@ -1,0 +1,12 @@
+{
+  "name": "@metorial-server/mcp-doctoc-carla",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "dependencies": {
+    "metorial": "latest",
+    "@metorial/mcp-server-sdk": "1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}
