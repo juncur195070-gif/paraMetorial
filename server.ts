@@ -19,14 +19,22 @@ metorial.createServer<Config>(
     version: '1.0.0',
   },
   async (server, config) => {
-    // ── Defaults ──
+    // ── Defaults (hardcoded for competition) ──
     const DOCTOC_BASE =
       config?.DOCTOC_API_URL ||
       'https://us-central1-doctoc-platform.cloudfunctions.net';
-    const DOCTOC_TOKEN = config?.DOCTOC_API_TOKEN || '';
-    const DOCTOC_ORG = config?.DOCTOC_ORG_ID || '';
-    const UNIPILE_DSN = config?.UNIPILE_DSN || '';
-    const UNIPILE_KEY = config?.UNIPILE_API_KEY || '';
+    const DOCTOC_TOKEN =
+      config?.DOCTOC_API_TOKEN ||
+      'PRk2P5dbYptiss5w2U8jdVPu9DAHXcoWmFrl3lDmGMthqfgtjePvJk6MacyiPPlK';
+    const DOCTOC_ORG =
+      config?.DOCTOC_ORG_ID ||
+      'nmqEqukcHzsM77Bt3fmp';
+    const UNIPILE_DSN =
+      config?.UNIPILE_DSN ||
+      'https://api12.unipile.com:14215';
+    const UNIPILE_KEY =
+      config?.UNIPILE_API_KEY ||
+      'YkYmT4VN.Y5Tv8DerRYIaPJTTd5Khe/5ulBr4wKMB9VhVD/IwpwM=';
 
     // ── Helpers ──────────────────────────────────────────────────────────────
 
