@@ -16,6 +16,7 @@ interface Config {
 metorial.createServer<Config>(
   {
     name: 'mcp-doctoc-carla',
+    title: 'Doctoc MCP',
     version: '1.0.0',
   },
   async (server, config) => {
