@@ -197,7 +197,7 @@ metorial.createServer<Config>(
       },
       async ({ uid }) => {
         try {
-          const data = await doctocRequest('manageUserInfoAPI', { uid, sections: ['basic', 'professional'] });
+          const data = await doctocRequest('manageUserInfoAPI', { action: 'get', uid, type: 'user', sections: ['basic', 'professional'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -216,7 +216,7 @@ metorial.createServer<Config>(
       },
       async ({ uid }) => {
         try {
-          const data = await doctocRequest('manageUserInfoAPI', { uid, sections: ['calendarInfo'] });
+          const data = await doctocRequest('manageUserInfoAPI', { action: 'get', uid, type: 'user', sections: ['calendarInfo'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -233,7 +233,7 @@ metorial.createServer<Config>(
       },
       async () => {
         try {
-          const data = await doctocRequest('manageUserInfoAPI', { sections: ['tipos'] });
+          const data = await doctocRequest('manageUserInfoAPI', { action: 'get', type: 'user', sections: ['tipos'] });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -253,7 +253,7 @@ metorial.createServer<Config>(
       },
       async ({ uid, calendarData }) => {
         try {
-          const data = await doctocRequest('manageUserInfoAPI', { uid, action: 'update', calendarData });
+          const data = await doctocRequest('manageUserInfoAPI', { action: 'update', uid, type: 'user', data: calendarData });
           return ok(data);
         } catch (e: any) {
           return err(e.message);
@@ -569,7 +569,7 @@ metorial.createServer<Config>(
         } catch (e: any) {
           // Fallback: obtener precios desde tipos de cita
           try {
-            const fallback = await doctocRequest('manageUserInfoAPI', { sections: ['tipos'] });
+            const fallback = await doctocRequest('manageUserInfoAPI', { action: 'get', type: 'user', sections: ['tipos'] });
             return ok({ source: 'appointment_types_fallback', data: fallback });
           } catch (e2: any) {
             return err(e.message);
